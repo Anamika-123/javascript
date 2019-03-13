@@ -7,20 +7,20 @@
 <body>
 
 <div class="check_css">
-	<p><input type="checkbox" id="clr">Color<br></p>
+	<div ><input type="checkbox" id="clr">Color<br></div>
 	<p class="colorchild" style="display: none;"><input type="checkbox" class="xyz">red<br></p>
 	<p class="colorchild" style="display: none;"><input type="checkbox" class="xyz">yellow<br></p>
 	<p class="colorchild" style="display: none;"><input type="checkbox" class="xyz">green<br></p>
 	<p class="colorchild" style="display: none;"><input type="checkbox" class="xyz">blue<br></p>
 
-	<p><input type="checkbox" id="drnk">drinks<br></p>
-	<p class="colorchild" style="display: none;"><input type="checkbox" class="xyz">coke<br></p>
-	<p class="colorchild" style="display: none;"><input type="checkbox" class="xyz">pepsi<br></p>
-	<p class="colorchild" style="display: none;"><input type="checkbox" class="xyz">dew<br></p>
+	<p><input type="checkbox" id="drink">drinks<br></p>
+	<p class="drinkchild" style="display: none;"><input type="checkbox" class="xyz">coke<br></p>
+	<p class="drinkchild" style="display: none;"><input type="checkbox" class="xyz">pepsi<br></p>
+	<p class="drinkchild" style="display: none;"><input type="checkbox" class="xyz">dew<br></p>
 
 	<p><input type="checkbox" id="movie">Movies<br></p>
-    <p class="colorchild" style="display: none;"><input type="checkbox" class="xyz">Dar<br></p>
-	<p class="colorchild" style="display: none;"><input type="checkbox" class="xyz">Sir<br></p>
+    <p class="moviechild" style="display: none;"><input type="checkbox" class="xyz">Dar<br></p>
+	<p class="moviechild" style="display: none;"><input type="checkbox" class="xyz">Sir<br></p>
 </div>
 
 </body>
@@ -38,11 +38,11 @@ Checkbox.prototype.bindEvents = function(){
 }
 
 Checkbox.prototype.selected = function(e){
-	e.find(".colorchild").toggle();
-	if(e.prop("checked")){
-	$('.colorchild').prop('checked',false);
-	}
+	$(".colorchild").toggle();
+	if(e.prop('checked')){
+  $('.colorchild').find('input').prop('checked',false);
 
+	}
 	else{
 	$('.colorchild').prop('checked', true);
 	}
