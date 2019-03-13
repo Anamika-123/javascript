@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="check_css">
+	<p><input type="checkbox" id="clr">Color<br></p>
+	<p class="colorchild" style="display: none;"><input type="checkbox" class="xyz">red<br></p>
+	<p class="colorchild" style="display: none;"><input type="checkbox" class="xyz">yellow<br></p>
+	<p class="colorchild" style="display: none;"><input type="checkbox" class="xyz">green<br></p>
+	<p class="colorchild" style="display: none;"><input type="checkbox" class="xyz">blue<br></p>
+
+	<p><input type="checkbox" id="drnk">drinks<br></p>
+	<p class="colorchild" style="display: none;"><input type="checkbox" class="xyz">coke<br></p>
+	<p class="colorchild" style="display: none;"><input type="checkbox" class="xyz">pepsi<br></p>
+	<p class="colorchild" style="display: none;"><input type="checkbox" class="xyz">dew<br></p>
+
+	<p><input type="checkbox" id="movie">Movies<br></p>
+    <p class="colorchild" style="display: none;"><input type="checkbox" class="xyz">Dar<br></p>
+	<p class="colorchild" style="display: none;"><input type="checkbox" class="xyz">Sir<br></p>
+</div>
+
+</body>
+</html>
+
+<script>
+var Checkbox = function(){
+}
+
+Checkbox.prototype.bindEvents = function(){
+ var Outerscope = this;
+ $('#clr').click(function(){
+ 	Outerscope.selected($(this));
+ });
+}
+
+Checkbox.prototype.selected = function(e){
+	e.find(".colorchild").toggle();
+	if(e.prop("checked")){
+	$('.colorchild').prop('checked',false);
+	}
+
+	else{
+	$('.colorchild').prop('checked', true);
+	}
+}
+
+var parentchild = new Checkbox();
+parentchild.bindEvents();
+
+
+</script>
+
+
