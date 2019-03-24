@@ -7,20 +7,23 @@
 <body>
 
 <div class="check_css">
-	<div ><input type="checkbox" id="clr">Color<br></div>
-	<p class="colorchild" style="display: none;"><input type="checkbox" class="xyz">red<br></p>
-	<p class="colorchild" style="display: none;"><input type="checkbox" class="xyz">yellow<br></p>
-	<p class="colorchild" style="display: none;"><input type="checkbox" class="xyz">green<br></p>
-	<p class="colorchild" style="display: none;"><input type="checkbox" class="xyz">blue<br></p>
+	<div><input type="checkbox" id="clr" class="datacheck" data-check-all="data-color">Color<br></div>
+	<p class="data-color xyz" style="display: none;"><input type="checkbox">red<br></p>
+	<p class="data-color xyz" style="display: none;"><input type="checkbox">yellow<br></p>
+	<p class="data-color xyz" style="display: none;"><input type="checkbox">green<br></p>
+	<p class="data-color xyz" style="display: none;"><input type="checkbox">blue<br></p>
 
-	<p><input type="checkbox" id="drink">drinks<br></p>
-	<p class="drinkchild" style="display: none;"><input type="checkbox" class="xyz">coke<br></p>
-	<p class="drinkchild" style="display: none;"><input type="checkbox" class="xyz">pepsi<br></p>
-	<p class="drinkchild" style="display: none;"><input type="checkbox" class="xyz">dew<br></p>
 
-	<p><input type="checkbox" id="movie">Movies<br></p>
-    <p class="moviechild" style="display: none;"><input type="checkbox" class="xyz">Dar<br></p>
-	<p class="moviechild" style="display: none;"><input type="checkbox" class="xyz">Sir<br></p>
+    <div><input type="checkbox" id="drink" class="datacheck" data-check-all="data-drink">drinks<br></div>
+	<p class="data-drink xyz" style="display: none;"><input type="checkbox">coke<br></p>
+	<p class="data-drink xyz" style="display: none;"><input type="checkbox">pepsi<br></p>
+	<p class="data-drink xyz" style="display: none;"><input type="checkbox">dew<br></p>
+
+    
+    <div><input type="checkbox" id="movie" class="datacheck" data-check-all="data-movie">Movies<br></div>
+	    <p class="data-movie xyz" style="display: none;"><input type="checkbox" >Dar<br></p>
+		<p class="data-movie xyz" style="display: none;"><input type="checkbox">Sir<br></p>
+
 </div>
 
 </body>
@@ -35,16 +38,23 @@ Checkbox.prototype.bindEvents = function(){
  $('#clr').click(function(){
  	Outerscope.selected($(this));
  });
+ $('#drink').click(function(){
+ 	Outerscope.selected($(this));
+ });
+ $('#movie').click(function(){
+ 	Outerscope.selected($(this));
+ });
 }
 
 Checkbox.prototype.selected = function(e){
-	$(".colorchild").toggle();
-	if(e.prop('checked')){
-  $('.colorchild').find('input').prop('checked',false);
 
-	}
+	var childCheck = e.attr('data-check-all');
+	$('.' + childCheck).toggle();
+	if(e.prop('checked')){
+	  $('.datacheck').find('.xyz').prop('checked',false);
+    }
 	else{
-	$('.colorchild').prop('checked', true);
+	$('.datacheck').prop('datacheck', true);
 	}
 }
 
@@ -53,5 +63,6 @@ parentchild.bindEvents();
 
 
 </script>
+
 
 
