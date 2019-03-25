@@ -5,64 +5,29 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-
 <div class="check_css">
 	<div><input type="checkbox" id="clr" class="datacheck" data-check-all="data-color">Color<br></div>
-	<p class="data-color xyz" style="display: none;"><input type="checkbox">red<br></p>
-	<p class="data-color xyz" style="display: none;"><input type="checkbox">yellow<br></p>
-	<p class="data-color xyz" style="display: none;"><input type="checkbox">green<br></p>
-	<p class="data-color xyz" style="display: none;"><input type="checkbox">blue<br></p>
+	<p class="data-color" style="display: none;"><input type="checkbox">red<br></p>
+	<p class="data-color" style="display: none;"><input type="checkbox">yellow<br></p>
+	<p class="data-color" style="display: none;"><input type="checkbox">green<br></p>
+	<p class="data-color" style="display: none;"><input type="checkbox">blue<br></p>
 
 
     <div><input type="checkbox" id="drink" class="datacheck" data-check-all="data-drink">drinks<br></div>
-	<p class="data-drink xyz" style="display: none;"><input type="checkbox">coke<br></p>
-	<p class="data-drink xyz" style="display: none;"><input type="checkbox">pepsi<br></p>
-	<p class="data-drink xyz" style="display: none;"><input type="checkbox">dew<br></p>
+	<p class="data-drink" style="display: none;"><input type="checkbox">coke<br></p>
+	<p class="data-drink" style="display: none;"><input type="checkbox">pepsi<br></p>
+	<p class="data-drink" style="display: none;"><input type="checkbox">dew<br></p>
 
     
     <div><input type="checkbox" id="movie" class="datacheck" data-check-all="data-movie">Movies<br></div>
-	    <p class="data-movie xyz" style="display: none;"><input type="checkbox" >Dar<br></p>
-		<p class="data-movie xyz" style="display: none;"><input type="checkbox">Sir<br></p>
-
+    <p class="data-movie" style="display: none;"><input type="checkbox" >Dar<br></p>
+	<p class="data-movie" style="display: none;"><input type="checkbox">Sir<br></p>
 </div>
-
 </body>
+
 </html>
+<script src="parent_child.js"></script>
 
-<script>
-var Checkbox = function(){
-}
-
-Checkbox.prototype.bindEvents = function(){
- var Outerscope = this;
- $('#clr').click(function(){
- 	Outerscope.selected($(this));
- });
- $('#drink').click(function(){
- 	Outerscope.selected($(this));
- });
- $('#movie').click(function(){
- 	Outerscope.selected($(this));
- });
-}
-
-Checkbox.prototype.selected = function(e){
-
-	var childCheck = e.attr('data-check-all');
-	$('.' + childCheck).toggle();
-	if(e.prop('checked')){
-	  $('.datacheck').find('.xyz').prop('checked',false);
-    }
-	else{
-	$('.datacheck').prop('datacheck', true);
-	}
-}
-
-var parentchild = new Checkbox();
-parentchild.bindEvents();
-
-
-</script>
 
 
 
