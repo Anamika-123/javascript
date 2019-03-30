@@ -3,27 +3,16 @@ var Checkbox = function(){
 
 Checkbox.prototype.bindEvents = function(){
  var Outerscope = this;
- $('#clr').click(function(){
- 	Outerscope.selected($(this));
- });
- $('#drink').click(function(){
- 	Outerscope.selected($(this));
- });
- $('#movie').click(function(){
+ $('.parentInputClass').click(function(){
  	Outerscope.selected($(this));
  });
 }
 
-Checkbox.prototype.selected = function(e){
+Checkbox.prototype.selected = function(parentinputcheck){
 
-	var childCheck = e.attr('data-check-all');
+	var childCheck = parentinputcheck.attr('data-children-class');
 	$('.' + childCheck).toggle();
-	if(e.prop('checked')){
-	  $('.datacheck').find('.data-color').prop('checked',false);
-    }
-	else{
-		// $('.datacheck').prop('checked', true);
-	}
+	$('.' +childCheck).find('input').prop('checked', false);
 }
 
 var parentchild = new Checkbox();
