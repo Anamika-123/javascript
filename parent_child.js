@@ -3,16 +3,23 @@ var Checkbox = function(){
 
 Checkbox.prototype.bindEvents = function(){
  var Outerscope = this;
+
  $('.parentInputClass').click(function(){
- 	Outerscope.togglecheckboxes($(this));
+ 	var childrenCheckboxClass = $(this).attr('data-children-class');
+ 	Outerscope.togglecheckboxes(childrenCheckboxClass);
+ 	Outerscope.deselectedcheckboxes(childrenCheckboxClass)
  });
 }
 
-Checkbox.prototype.togglecheckboxes = function(selectedelement){
-var childrenCheckboxClass = selectedelement.attr('data-children-class');
-$('.' + childrenCheckboxClass).toggle();
-$('.' + childrenCheckboxClass).find('input').prop('checked', false);
+Checkbox.prototype.togglecheckboxes = function(childrenCheckboxClass){
+	$('.' + childrenCheckboxClass).toggle();
 }
+
+Checkbox.prototype.deselectedcheckboxes = function (childrenCheckboxClass){
+	$('.' + childrenCheckboxClass).find('input').prop('checked', false);
+}
+
+
 
 var parentchild = new Checkbox();
 parentchild.bindEvents();
