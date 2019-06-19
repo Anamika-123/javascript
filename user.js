@@ -4,6 +4,9 @@ var User = function(){
 
 User.prototype.bindEVents = function(){
 	var outerScope = this;
+	outerScope.saveRow();
+	outerScope.editRow();
+	outerScope.updateRow();
 
 }
 
@@ -13,32 +16,36 @@ User.protoype.addRow = function(){
 }
 
 User.prototype.saveRow = function(){
-	$(".buttonSave").click(function(){
+	this.rowHtml.find(".buttonSave").click(function(){
 	var saveInputName =	$(this).parents('<tr>').find('.inputName');
 	saveInputName.replace( saveInputName.text());
 
 	var saveInputEmail = $(this).parents('<tr>').find('inputEmail');
 	saveInputEmail.replace(saveInputEmail.text());
-
-	})
+    this.rowHtml.find('.buttonEdit').removeClass('hide-me');
+    this.rowHtml.find('.buttonUpdate').removeClass('hide-me');
+    $(this).addClass('.hide-me');
+    })
 }
 
 User.prototype.editRow = function(){
-	$(".buttonEdit").click(function(){
-		var editInput = $('<input type=text>');
-		var editInputname = $(this).parents('<tr>').find('inputName');
-		var editInputEmail = $(this).parents('<tr>').find('inputEmail');
+	this.rowHtml.find(".buttonEdit").click(function(){
+		var editInput1 = $('<input type=text>');
+		var editInput2 = $('<input type=text>');
+
+		var editInputname = $(this).parents('<tr>').find('.inputName');
+		var editInputEmail = $(this).parents('<tr>').find('.inputEmail');
 		var editInputext1 = editInputname.text();
 		var editInputext2 = editInputEmail.text();
 		var blankInputext1 = editInputext1.text(" ");
 		var blankInputext2 = editInputext2.text(" ");
-		blankInputext1.append(editInput);
-		blankInputext2.append(editInput);
+		editInput1.append(editInputext1);
+		editInput2.append(editInputext2);
   });
 }
 
 User.prototype.updateRow = function(){
- $("buttonUpdate").click(function(){
+ this.rowHtml.find(".buttonUpdate").click(function(){
 
  	var updateInputName = $(this).parents('<tr>').find('InputName');
  	updateInputName.replace(updateInputName.text());
