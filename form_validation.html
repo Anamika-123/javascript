@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js">
+	</script>
+	<script src="form_validation.js"></script>
+	
+</head>
+<body>
+	<div class="text-center">
+		<h2>Registration Form</h2>
+		<div class="bg-green" style="padding-bottom: 10px;">
+			<div class="display-flex" style="margin-left: 10px;">
+				<p>Login Id</p>
+				<input type="number" name="Login Id" style="height: 20px;" id="inputId">
+			</div>
+
+			<div class="display-flex margin-10">
+				<p>Email</p>
+				<input type="email" name="Email" style="height: 20px;" id="inputemail">
+			</div>
+
+			<div class="display-flex margin-10">
+				<p>Name</p>
+				<input type="text" name="Name " style="height: 20px;" id="inputname">
+			</div>
+
+			<div class="display-flex margin-10">
+				<p>Time Zone</p>
+				<input type="number" name="Time Zone" style="height: 20px;" id="inputZone">
+			</div>
+
+			<div class="display-flex margin-10">
+				<p>Home Page </p>
+				<input type="text" name="Home Page" style="height: 20px;">
+			</div>
+
+			<div style="text-align: left;" class="margin-10">
+				<p>About me </p>
+				<textarea style="height: 200px;width: 100%;"></textarea>
+			</div>
+
+			<div class="display-flex" style="max-width: 252px;margin-left: 10px;margin-bottom: -10px;">
+				<input type="checkbox" name=""> Recieve notification of comments
+			</div>
+    </div>
+    <p>Your password will be mailed to you</p>
+
+    <button id="gobutton">Go</button>
+	</div>
+		
+
+</body>
+</html>
+<style>
+	.display-flex{
+		display: flex;
+		justify-content: space-between;
+    max-width: 300px;
+    align-items: center;
+	}
+	.bg-green::after{
+		content: 'You will be sent an email when someone posts comments to your Blog or Album';
+		color:#373534;
+	}
+	.text-center{
+		text-align: center;
+		max-width: 550px;
+		margin: 0 auto;
+		background-color: #E0E293;
+	}
+	h2{
+		background-color: #a1c18a;
+		color: #128dd2;
+		margin-bottom: 0;
+		padding: 10px;
+	}
+	.margin-10{
+		margin:10px;
+	}
+	input[type="checkbox"]{
+		width: 30px;
+		height: 40px;
+    zoom:1.0;
+    background-color: #fff;
+	}
+</style>
