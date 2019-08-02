@@ -8,12 +8,19 @@ function repeat(){
 		a[i] = inputNumber;
         b[a[i]] = b[a[i]] + 1;
     }
-    for(i=0;i<a.length;i++){
-     for(i=0;i<b.length;i++){
-     	document.write(a[i]+"is repeating"+b[a[i]]+"times</br>");
-     }
+    for(i=0;i<b.length;i++){
+    	if(b[i]>0){
+    	  document.write(i+"is repeating"+ b[i]+"<br>" );
+        }
+    }   
+    max=b[0];
+    maxindex = 0;
+    for(i=0;i<b.length;i++){
+    	if(b[i]>max){
+    		max=b[i];
+    		maxindex = i;
+    	}
     }
-     for(i=0;i<b.length;i++){
-     	// document.write("fbdfs"+b.findIndex()+"are unique numbers"+"</br>");
-     }
+    document.write("MAXIMUM NUMBER IS"+maxindex);
+
 }
