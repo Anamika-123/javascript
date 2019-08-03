@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div>
+red:<input type="checkbox" class="checkd"><br>
+green:<input type="checkbox" class="checkd"><br>
+yellow:<input type="checkbox" class="checkd"><br>
+black:<input type="checkbox" class="checkd"><br>
+</div>
+
+<p><a href="#" id="selected" data-value=5>checkall</a></p>
+<p><a href="#" id="deselected" >None</a></p>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+</script>
+<script>
+var Checkbox = function(){
+}
+
+Checkbox.prototype.bindEvents = function(){
+var checkboxThis = this;                                           
+
+
+$('#selected').click(function(){
+
+  checkboxThis.CheckAll();
+});
+ 
+ $('#deselected').click(function(){
+   checkboxThis.None();
+});
+}
+
+Checkbox.prototype.CheckAll = function(){
+ $(".checkd").prop('checked',true);
+}
+
+Checkbox.prototype.None = function(){
+  $(".checkd").prop('checked',false);
+ }
+    
+
+var checkpage = new Checkbox();
+checkpage.bindEvents();
+
+</script>
+
+
+

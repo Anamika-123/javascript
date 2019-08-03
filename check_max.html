@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div>
+sunday:<input type="checkbox" class="checkd"><br>
+monday:<input type="checkbox" class="checkd"><br>
+tuesday:<input type="checkbox" class="checkd"><br>
+wednesday:<input type="checkbox" class="checkd"><br>
+thrusday:<input type="checkbox" class="checkd"><br>
+friday:<input type="checkbox" class="checkd"><br>
+saturday:<input type="checkbox" class="checkd"><br>
+none: <input type="checkbox" id="none"><br>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+</script>
+<script>
+	var checkbox = function(){
+
+	}
+
+	checkbox.prototype.bindEvents = function(){
+	var outerScope = this;
+	$(".checkd").click(function(){
+		outerScope.checkmax();
+	})
+	$("#none").click(function(){
+		outerScope.none();
+    });
+
+
+	}
+
+	checkbox.prototype.checkmax = function(){
+		$('input[type="checkbox"]').click(function(e){
+			var num = $('input[type="checkbox"]').prop("checked",true).length;
+			if(num>3){
+				alert("hiiiiiiiiiii");
+				$(e.target).prop("checked",false);
+			}
+
+		})
+    }
+	checkbox.prototype.none = function(){
+		$('.checkd').prop("checked",false);
+		$('input[type="checkbox"]').click(function(e){
+			if($(e.target).prop("checked",true)){
+				$(e.target).prop("checked",false)
+
+			}
+		})
+	}
+
+	var checkboxInstance = new checkbox();
+	checkboxInstance.bindEvents();
+
+</script>
+
+
+
