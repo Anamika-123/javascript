@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+	<input type="checkbox" class="checkd">Sunday:<br>
+	<input type="checkbox" class="checkd">Monday:<br>
+	<input type="checkbox" class="checkd">Tuesday:<br>
+	<input type="checkbox" class="checkd">Wednesday:<br>
+	<input type="checkbox" class="checkd">Friday:<br>
+	<input type="checkbox" class="checkd">Sunday:<br>
+	<input type="checkbox" class="checkd">Saturday:<br>
+	<a href="#" id="none">None</a>
+
+</body>
+</html>
+
+<script>
+	var Checkbox = function(){
+
+	}
+	Checkbox.prototype.bindEvents = function(){
+		var outerScope = this;
+		$('.checkd').click(function(){
+			outerScope.checkMax();
+		});
+	  $('#none').click(function(){
+	  	outerScope.deselected();
+    });
+		
+
+	}
+	Checkbox.prototype.checkMax = function(){
+		$('input[type="checkbox"]').click(function(e){
+			var checkBoxCount = $('input[type="checkbox"]:checked').length;
+			if(checkBoxCount > 3){
+				alert("you have selected more than 3 days");
+				$(e.target).prop("checked",false);
+			}
+    });
+	}
+
+
+
+
+	Checkbox.prototype.deselected = function(){
+		$('input[type=checkbox]').click(function(e){
+			
+
+		})
+
+	}
+
+	var CheckboxInstance = new Checkbox();
+	CheckboxInstance.bindEvents();
+	</script>

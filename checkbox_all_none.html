@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+	<input type="checkbox">Red:<br>
+	<input type="checkbox">yellow:<br>
+	<input type="checkbox">green:<br>
+	<input type="checkbox">blue:<br>
+	<a href="#" id="checkall">check all</a><br>
+	<a href="#" id="none">none</a>
+
+</body>
+</html>
+<script>
+
+var checkBox = function(){
+
+}
+
+checkBox.prototype.bindEvents = function(){
+	var outerScope = this;
+	outerScope.checkAll();
+	outerScope.checkNone();
+}
+checkBox.prototype.checkAll = function(){
+	$(document).ready(function(){
+		$("#checkall").click(function(){
+			$('input[type="checkbox"]').prop("checked",true);
+
+		})
+	})
+
+}
+checkBox.prototype.checkNone = function(){
+	$("#none").click(function(){
+		alert("hii");
+	 $('input[type="checkbox"]').prop("checked",false);
+
+	})
+
+}
+
+
+var checkboxInstance = new checkBox();
+checkboxInstance.bindEvents();
+</script>

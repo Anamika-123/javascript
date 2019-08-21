@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+<body>
+	<div><input type="checkbox" class="parentCheckbox" data-target-class="color-class">color:</div><br>
+	<p style="display: none;" class="color-class"><input type="checkbox" >yellow:</p><br>
+	<p style="display: none;" class="color-class"><input type="checkbox">green:</p><br>
+	<p style="display: none;" class="color-class"><input type="checkbox">blue:</p><br>
+
+	<div class="parentCheckbox" data-target-class="movie-class"><input type="checkbox">Movies:</div><br>
+	<p style="display: none;" class="movie-class"><input type="checkbox">Dar</p><br>
+	<p style="display: none;" class="movie-class"><input type="checkbox">Sir:</p><br>
+
+	<div class="parentCheckbox" data-target-class="drink-class"><input type="checkbox">Drinks:</div><br>
+	<p style="display: none;" class="drink-class"><input type="checkbox" >Coke:</p><br>
+	<p style="display: none;" class="drink-class"><input type="checkbox">Pepsi:</p><br>
+	<p style="display: none;" class="drink-class"><input type="checkbox">Dew:</p><br>
+
+	<div class="parentCheckbox" data-target-class="bike-class"><input type="checkbox">Bikes:</div><br>
+	<p style="display: none;" class="bike-class"><input type="checkbox">V-rod:</p><br>
+	<p style="display: none;" class="bike-class"><input type="checkbox">Pulsar:</p><br>
+	<p style="display: none;" class="bike-class"><input type="checkbox">Cbz:</p><br>
+
+</body>
+</html>
+<script>
+	var checkMax = function(){
+
+	}
+
+	checkMax.prototype.bindEvents = function(){
+		var outerScope = this;
+	  $('.parentCheckbox').click(function(){
+	  	var toggleData= $(this).data('target-class');
+	  	outerScope.toggleCheckboxes(toggleData);
+	  	outerScope.detoggleCheckboxes(toggleData);
+	  })
+
+	}
+	checkMax.prototype.toggleCheckboxes = function(toggleData){
+		$('.' + toggleData).toggle();
+	}
+	checkMax.prototype.detoggleCheckboxes = function(toggleData){
+        $('.' + toggleData).find('input[type="checkbox"]').prop("checked",false);
+	}
+
+
+
+	var checkMaxInstance = new checkMax();
+	checkMaxInstance.bindEvents();
+</script>
